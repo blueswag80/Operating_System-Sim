@@ -1,0 +1,79 @@
+PROGRAM  1
+SEGMENT  5    0xFF
+
+SIO    40
+LPRT   35
+WIO    0
+REQ    [0,1]
+END    30
+
+
+PROGRAM  2
+SEGMENT  6    0xEE
+SEGMENT  5    0x0F
+
+SIO    10
+PRT2   10
+WIO    10
+REQ    [0,1]
+SKIP   0
+JUMP   [1,0]
+
+SIO    10
+PRT1   20
+WIO    10
+REQ    [1,1]
+END    10
+
+
+PROGRAM  4
+SEGMENT  10   0x0A
+SEGMENT  8    0x0B
+SEGMENT  3    0x0C
+SEGMENT  4    0x0D
+
+SIO    5
+PRT1   10
+SKIP   1
+JUMP   [1,0]
+SKIP   1
+JUMP   [2,0]
+SKIP   1
+JUMP   [3,0]
+SKIP   0
+JUMP   [3,0]
+
+SKIP   2
+JUMP   [1,4]
+SIO    30
+PRT2   30
+SKIP   1
+JUMP   [3,0]
+SKIP   0
+JUMP   [2,0]
+
+WIO    20
+REQ    [1,3]
+END    50
+
+WIO    40
+REQ    [0,1]
+SKIP   0
+JUMP   [1,0]
+
+
+PROGRAM  1
+SEGMENT  13   0x0E
+SIO    0
+LPRT   40
+SIO    0
+PRT2   50
+SIO    0
+PRT1   40
+WIO    600
+REQ    [0,3]
+WIO    100
+REQ    [0,1]
+WIO    50
+REQ    [0,5]
+END    20

@@ -1,0 +1,50 @@
+PROGRAM  2
+SEGMENT  6    0xCF
+SEGMENT  5    0xFC
+
+SIO    50
+DISK   100
+WIO    175
+REQ    [0,1]
+SKIP   0
+JUMP   [1,0]
+
+SIO    4500
+DISK   170
+WIO    700
+REQ    [1,1]
+END    150
+
+
+PROGRAM  3
+SEGMENT  12   0xC7
+SEGMENT  6    0x0A
+SEGMENT  7    0xF0
+
+SIO    50
+DISK   200
+SIO    0
+DSK2   100
+SIO    90
+RDSK   25
+WIO    100
+REQ    [0,3]
+WIO    75
+REQ    [0,5]
+SKIP   0
+JUMP   [1,0]
+
+WIO    400
+REQ    [0,1]
+SIO    5000
+DISK   275
+SKIP   0
+JUMP   [2,0]
+
+SIO    200
+PRT2   45
+WIO    10
+REQ    [1,3]
+WIO    50
+REQ    [2,1]
+END    30

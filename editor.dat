@@ -1,0 +1,106 @@
+PROGRAM  2
+SEGMENT  4    0x0B
+SEGMENT  7    0xA0
+
+SIO    75
+DISK   150
+SKIP   0
+JUMP   [1,0]
+
+SIO    40
+DSK2   10
+WIO    50
+REQ    [0,1]
+WIO    0
+REQ    [1,1]
+END    20
+
+
+PROGRAM  1
+SEGMENT  9    0xFF
+
+SIO    10
+DISK   45
+WIO    0
+REQ    [0,1]
+SIO    250
+RDSK   40
+WIO    5000
+REQ    [0,5]
+END    10
+
+
+PROGRAM  3
+SEGMENT  8    0xAA
+SEGMENT  3    0xBB
+SEGMENT  6    0xFF
+
+SIO    50
+DSK2   10
+SIO    50
+RDSK   40
+WIO    100
+REQ    [0,1]
+SKIP   0
+JUMP   [2,0]
+
+WIO    5
+REQ    [2,3]
+END    75
+
+WIO    63
+REQ    [0,3]
+SIO    50
+PRT2   50
+SKIP   0
+JUMP   [1,0]
+
+
+PROGRAM  2
+SEGMENT  10   0x1F
+SEGMENT  5    0x7C
+
+SKIP   0
+JUMP   [1,0]
+SIO    15
+RDSK   50
+WIO    5
+REQ    [0,3]
+WIO    10
+REQ    [1,1]
+SKIP   0
+JUMP   [1,4]
+
+SIO    20
+RDSK   50
+SKIP   0
+JUMP   [0,2]
+END    40
+
+
+PROGRAM  2
+SEGMENT  4    0x90
+SEGMENT  3    0x10
+
+SIO    35
+DSK2   75
+SKIP   0
+JUMP   [1,0]
+
+WIO    85
+REQ    [0,1]
+END    10
+
+
+PROGRAM  1
+SEGMENT  9    0xCC
+
+SIO    10
+PRT2   50
+SIO    40
+LPRT   30
+WIO    5
+REQ    [0,3]
+WIO    10
+REQ    [0,1]
+END    15

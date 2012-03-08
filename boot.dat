@@ -1,0 +1,27 @@
+PROGRAM  4
+SEGMENT  4    0x01
+SEGMENT  4    0x02
+SEGMENT  8    0x03
+SEGMENT  1    0x04
+
+SIO    75
+DISK   2000
+SKIP   0
+JUMP   [2,0]
+
+SKIP   1
+JUMP   [3,0]
+SKIP   0
+JUMP   [2,6]
+
+
+SIO    400
+PRNT   150
+WIO    500
+REQ    [0,1]
+WIO    0
+REQ    [2,1]
+SKIP   0
+JUMP   [1,0]
+
+END    20
